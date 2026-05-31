@@ -1,5 +1,4 @@
-# 🚀 Week 3 - LINQ To Objects
-
+🚀 Week 4 - LINQ Advanced
 ## 📌 Project Overview
 
 IceCity is a heating management system designed to analyze house heating usage using LINQ to Objects in C#.
@@ -218,6 +217,232 @@ var query = Repository.Heaters
 ```
 
 ---
+## 🔹 Element Operators
+
+Implemented:
+
+* First
+* FirstOrDefault
+* Single
+* SingleOrDefault
+* Last
+* LastOrDefault
+* ElementAt
+
+Example:
+
+```csharp
+var firstHeater = heaters.First();
+
+var heater =
+    heaters.FirstOrDefault(
+        h => h.PowerValue > 5000
+    );
+```
+
+Purpose:
+
+* Retrieving specific elements from collections
+* Handling missing results safely
+
+---
+
+## 🔹 Equality Operators
+
+Implemented:
+
+* SequenceEqual
+
+Example:
+
+```csharp
+var result =
+    ids1.SequenceEqual(ids2);
+```
+
+Purpose:
+
+* Comparing collections by values and order
+
+---
+
+## 🔹 Concatenation Operators
+
+Implemented:
+
+* Concat
+* Append
+* Prepend
+
+Example:
+
+```csharp
+var allHeaters =
+    owner1Heaters.Concat(owner2Heaters);
+
+var appended =
+    owner1Heaters.Append(newHeater);
+```
+
+Purpose:
+
+* Combining sequences
+* Adding elements without modifying source collections
+
+---
+
+## 🔹 Aggregation Operators
+
+Implemented:
+
+* Sum
+* Min
+* Max
+* Average
+* Aggregate
+
+Example:
+
+```csharp
+var averagePower =
+    heaters.Average(h => h.PowerValue);
+
+var csv =
+    houses.Select(h => h.OwnerId)
+          .Aggregate((x, y) => $"{x},{y}");
+```
+
+Purpose:
+
+* Producing summarized values from collections
+
+---
+
+## 🔹 Set Operators
+
+Implemented:
+
+* Distinct
+* DistinctBy
+* Union
+* Intersect
+* Except
+
+Example:
+
+```csharp
+var union =
+    set1.Union(set2);
+
+var intersect =
+    set1.Intersect(set2);
+```
+
+Purpose:
+
+* Performing mathematical set operations on collections
+
+---
+
+## 🔹 Conversion Operators
+
+Implemented:
+
+* OfType
+* Cast
+* ToList
+* ToArray
+* ToDictionary
+* ToLookup
+
+Example:
+
+```csharp
+var heaterList =
+    heaters.ToList();
+
+var heaterDictionary =
+    heaters.ToDictionary(
+        h => h.HeaterId
+    );
+```
+
+Purpose:
+
+* Converting collections into different data structures
+
+---
+
+## 🔹 IEnumerable vs IQueryable
+
+Covered:
+
+* IEnumerable
+* IQueryable
+* Expression Trees
+
+Example:
+
+```csharp
+IQueryable<Heater> queryable =
+    heaters.AsQueryable();
+
+queryable =
+    queryable.Where(
+        h => h.PowerValue > 1000
+    );
+```
+
+Purpose:
+
+* Understanding execution differences
+* Understanding query translation
+
+---
+
+## 🔹 Custom LINQ Extensions
+
+Implemented:
+
+* Median Extension Method
+
+Example:
+
+```csharp
+var medianPower =
+    heaters
+    .Select(h => (double)h.PowerValue)
+    .Median();
+```
+
+Purpose:
+
+* Creating reusable custom LINQ operators
+
+---
+
+## 🔹 LINQ Anatomy
+
+Covered:
+
+* Query Pipeline
+* Deferred Execution
+* Expression Trees
+
+Example:
+
+```csharp
+var query =
+    heaters
+    .Where(h => h.PowerValue > 1000)
+    .Select(h => h.HeaterId)
+    .OrderBy(id => id);
+```
+
+Purpose:
+
+* Understanding how LINQ executes internally
+
 
 # 🛠️ Technologies Used
 
