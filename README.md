@@ -1,4 +1,4 @@
-🚀 Week 4 - LINQ Advanced
+ Week 4 - LINQ Advanced
 ## 📌 Project Overview
 
 IceCity is a heating management system designed to analyze house heating usage using LINQ to Objects in C#.
